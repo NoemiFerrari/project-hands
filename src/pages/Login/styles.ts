@@ -14,9 +14,17 @@ export const Header = styled.div`
     justify-content: end;
     padding-right: 10%;
 
+    span {
+        color: #FFF;
+        font-weight: 600;
+        margin-right: 25px;
+        cursor: pointer;
+    }
+
     img {
         width: 50px;
         height: 50px;
+        margin-left: 30px;
     }
 `;
 
@@ -81,7 +89,7 @@ export const Container = styled.div`
             color: #FFF;
             border-radius: 20px; 
             cursor: pointer;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bolder;
             letter-spacing: 0.6px;
             font-family: var(--roboto);

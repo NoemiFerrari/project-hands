@@ -7,6 +7,8 @@ import Close from '../../assets/close.png';
 import { Button, ButtonProps, Checkbox, CheckboxProps, FormControl, FormControlLabel, FormGroup, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, withStyles } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const BlueCheckbox = withStyles({
     root: {
@@ -76,6 +78,11 @@ const Login: React.FC = () => {
 
     const goTo = (url: string) => {
 
+        if(username === '' || values.password === '') {
+            toast.warn("Usuário e senha não podem ser vazios.");
+            return;
+        }
+
         if(isLogin) {
 
             let users = new Array()
@@ -91,9 +98,12 @@ const Login: React.FC = () => {
             }else {
                 alert("Usuário não encontrado!")
             }
-       }
+        }
 
        if(isRegister) {
+
+            toast.success("Usuário cadastrado com sucesso.");
+
             let users = new Array()
 
             const obj = {
@@ -161,9 +171,15 @@ const Login: React.FC = () => {
                 </Modal>
             )}
             <Header>
+                <span>Quem somos</span>
+                <span>Meu perfil</span>
+                <span>Fale conosco</span>
+                <span>FAQ</span>
+                <span>Me ajude</span>
                 <img src={Handshake} alt={''} />
             </Header>
-            <Container> 
+            <ToastContainer />
+            <Container>
                 <div className="slider">
                     {cont === 1 && (
                         <div>
