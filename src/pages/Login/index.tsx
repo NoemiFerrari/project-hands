@@ -96,7 +96,7 @@ const Login: React.FC = () => {
             if(res && res.password === values.password) {
                 navigate(url);
             }else {
-                alert("Usuário não encontrado!")
+                toast.error("Usuário não encontrado.");
             }
         }
 
