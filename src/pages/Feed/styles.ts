@@ -9,7 +9,7 @@ export const List = styled.section`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding-top: 130px;
+    /* padding-top: 130px; */
 
     .round {
         border-radius: 100%;

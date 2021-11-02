@@ -12,6 +12,7 @@ export const posts = [
             'username' : '@fernanda33',
             'photo' : 'https://img.r7.com/images/rosto-humano-irreal-inteligencia-artificial-19022019142837145'
         },
+        'like': false,
         'photo' : 'https://www.frasesdobem.com.br/wp-content/uploads/2014/03/deixe-para-tras.jpg',
         'legend' : 'Deixe para trás!',
         'comments': [
@@ -38,6 +39,7 @@ export const posts = [
             'username' : '@fernanda33',
             'photo' : 'https://img.r7.com/images/rosto-humano-irreal-inteligencia-artificial-19022019142837145'
         },
+        'like': false,
         'photo' : 'https://www.frasesdobem.com.br/wp-content/uploads/2018/02/se-custar-a-sua-paz.jpg',
         'legend' : 'Deixe para trás!',
         'comments': [

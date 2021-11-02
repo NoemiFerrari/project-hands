@@ -39,7 +39,6 @@ const Login: React.FC = () => {
     const [isRegister, setIsRegister] = React.useState<boolean>(true);
     const [isLogin, setIsLogin] = React.useState<boolean>(false);
     const [username, setUsername] = React.useState<string>("");
-    // const [password, setPassword] = React.useState<string>("");
     const navigate = useNavigate();
 
     const [values, setValues] = React.useState({
@@ -85,7 +84,7 @@ const Login: React.FC = () => {
 
         if(isLogin) {
 
-            let users = new Array()
+            let users = new Array();
 
             if (localStorage.hasOwnProperty("users")) {
                 users = JSON.parse(localStorage.getItem("users") || "")
@@ -94,6 +93,7 @@ const Login: React.FC = () => {
             const res = users.find((el : any ) => el.username === username);
 
             if(res && res.password === values.password) {
+                localStorage.setItem("username", username);
                 navigate(url);
             }else {
                 toast.error("Usuário não encontrado.");
@@ -117,9 +117,7 @@ const Login: React.FC = () => {
             
             users.push(obj)
             localStorage.setItem("users", JSON.stringify(users))
-            
-            navigate(url);
-       }
+        }
 
     };
     
@@ -174,7 +172,7 @@ const Login: React.FC = () => {
                 <span>Quem somos</span>
                 <span>Meu perfil</span>
                 <span>Fale conosco</span>
-                <span>FAQ</span>
+                <span onClick={() => navigate('faq')}>FAQ</span>
                 <span>Me ajude</span>
                 <img src={Handshake} alt={''} />
             </Header>
@@ -185,7 +183,7 @@ const Login: React.FC = () => {
                         <div>
                             <span>Você precisa de ajuda?</span>
                             <p>
-                            Aqui você encontra a pessoa certa. Converse com alguém agora mesmo.
+                                Aqui você encontra a pessoa certa. Converse com alguém agora mesmo.
                                 <span onClick={next}>Mais <img src={ArrowRight} alt={''}/></span>
                             </p>
                             <Bar position={'0px'}>
