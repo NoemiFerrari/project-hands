@@ -35,7 +35,7 @@ const Feed: React.FC = () => {
     return (
         <>
              <Header>
-                <span>Quem somos</span>
+                <span onClick={() => navigate('quem-somos')}>Quem somos</span>
                 <span>Meu perfil</span>
                 <span>Fale conosco</span>
                 <span onClick={() => navigate('faq')}>FAQ</span>

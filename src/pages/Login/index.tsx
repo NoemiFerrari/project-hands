@@ -169,10 +169,10 @@ const Login: React.FC = () => {
                 </Modal>
             )}
             <Header>
-                <span>Quem somos</span>
+                <span onClick={() => navigate('feed/quem-somos')}>Quem somos</span>
                 <span>Meu perfil</span>
                 <span>Fale conosco</span>
-                <span onClick={() => navigate('faq')}>FAQ</span>
+                <span onClick={() => navigate('feed/faq')}>FAQ</span>
                 <span>Me ajude</span>
                 <img src={Handshake} alt={''} />
             </Header>

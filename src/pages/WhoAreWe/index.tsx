@@ -1,11 +1,8 @@
+import { Header } from 'pages/Login/styles';
 import React from 'react';
-import { Header, Container } from './styles';
+import { useNavigate } from 'react-router';
 import Handshake from '../../assets/handshake.png';
-import FAQ from '../../assets/faq.jpg';
-import { useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
+import { Container } from './styles';
 
 const WhoAreWe: React.FC = () => {
     
@@ -14,110 +11,36 @@ const WhoAreWe: React.FC = () => {
     return (
         <>
             <Header>
-                <span>Quem somos</span>
+                <span onClick={() => navigate('quem-somos')}>Quem somos</span>
                 <span>Meu perfil</span>
                 <span>Fale conosco</span>
-                <span onClick={() => navigate('faq')}>FAQ</span>
+                <span onClick={() => navigate('/feed/faq')}>FAQ</span>
                 <span>Me ajude</span>
                 <img src={Handshake} alt={''} />
             </Header>
             <Container>
-                <div className="accordion">
-                    <span className="title">FAQ</span>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                        >
-                        <Typography>Como me cadastrar?</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                        <Typography>Esqueci minha senha</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                        <Typography>Como buscar profissionais</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                        <Typography>Como publicar no feed</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                        <Typography>Cancelar minha conta</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                        <Typography>Quero falar com o suporte</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
-                        </AccordionDetails>
-                    </Accordion>
+                <div className="container-image">
+                    {/* <img src={'https://images.pexels.com/photos/5318961/pexels-photo-5318961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} /> */}
                 </div>
-                <div className="image">
-
-                    <img src={FAQ} alt={''} />
+                <div className="container-text">
+                    <div>
+                        <span>Quem somos?</span> <br /><br />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum sem sit amet metus ornare, eget mattis lorem auctor. Proin euismod euismod neque, non vestibulum risus congue interdum. Praesent mi nisl, scelerisque pretium turpis eu, placerat aliquet felis. Duis quis rhoncus felis. Vestibulum gravida eu massa scelerisque cursus. Nullam varius est metus, quis rutrum mi vehicula sit amet. Cras semper in nibh a mollis. Aliquam ante enim, laoreet nec sagittis quis, egestas at sem.
+                    </div>
+                    <div style={{paddingTop: '65px'}}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum sem sit amet metus ornare, eget mattis lorem auctor. Proin euismod euismod neque, non vestibulum risus congue interdum. Praesent mi nisl, scelerisque pretium turpis eu, placerat aliquet felis. Duis quis rhoncus felis. Vestibulum gravida eu massa scelerisque cursus. Nullam varius est metus, quis rutrum mi vehicula sit amet. Cras semper in nibh a mollis. Aliquam ante enim, laoreet nec sagittis quis, egestas at sem. Duis eros mauris, posuere ut metus in, consequat ultricies libero. Aliquam erat volutpat.
+                    </div>
+                </div>
+                <div className="container-company">
+                    <div style={{width: '35%'}}>
+                        <img src={"https://images.pexels.com/photos/45842/clasped-hands-comfort-hands-people-45842.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                    </div>
+                    <div style={{padding: '25px', display: 'flex', alignItems: 'center', width: '30%', textAlign: 'justify'}}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum sem sit amet metus ornare, eget mattis lorem auctor. Proin euismod euismod neque, non vestibulum risus congue interdum. Praesent mi nisl, scelerisque pretium turpis eu, placerat aliquet felis. Duis quis rhoncus felis. Vestibulum gravida eu massa scelerisque cursus. Nullam varius est metus, quis rutrum mi vehicula sit amet. Cras semper in nibh a mollis. Aliquam ante enim, laoreet nec sagittis quis, egestas at sem. Duis eros mauris, posuere ut metus in, consequat ultricies libero. Aliquam erat.
+                    </div>
+                    <div style={{width: '35%'}}>
+                        <img src={"https://images.pexels.com/photos/5699466/pexels-photo-5699466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                    </div>
                 </div>
             </Container>
         </>
