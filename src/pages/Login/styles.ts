@@ -24,6 +24,7 @@ export const Header = styled.div`
     img {
         width: 50px;
         height: 50px;
+        cursor: pointer;
         margin-left: 30px;
     }
 `;
@@ -145,5 +146,80 @@ export const Modal = styled.div`
             height: 18px;
             cursor: pointer;
         }
+    }
+`;
+
+export const Footer = styled.div`
+    width: 100%;
+    height: 250px;
+    background-color: #3c3d41;
+
+    svg {
+        cursor: pointer;
+    }
+
+    .menu {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div:nth-child(1) {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        div:nth-child(2) {
+            width: 40%;
+            padding: 30px;
+
+            p {
+             color: #FFFFFF;
+             font-family: 'Roboto';
+             font-size: 14px;
+             margin-top: 15px;
+             line-height: 20px;
+            }
+
+            span {
+             color: #FFFFFF;
+             font-family: 'Roboto';
+             font-size: 16px;
+             font-weight: bold;
+             line-height: 20px;
+            }
+        }
+
+        div:nth-child(3) {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            justify-content: space-evenly;
+
+            svg {
+                color: #FFFFFF;
+                font-size: 40px;
+            }
+        }
+
+    }
+
+    .copyright {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        font-family: Roboto;
+        font-family: 16px;
+        background-color: #343434;
+        color: #FFFFFF;
     }
 `;

@@ -23,6 +23,7 @@ export const Header = styled.div`
 
     img {
         width: 50px;
+        cursor: pointer;
         height: 50px;
         margin-left: 30px;
     }

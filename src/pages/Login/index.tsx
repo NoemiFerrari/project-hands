@@ -1,11 +1,11 @@
 import React from 'react';
-import { Header, Container, Bar, Modal } from './styles';
+import { Header, Container, Bar, Modal, Footer } from './styles';
 import BackgroundHome from '../../assets/background-home.jpg';
 import ArrowRight from '../../assets/arrow-right.png';
 import Handshake from '../../assets/handshake.png';
 import Close from '../../assets/close.png';
 import { Button, ButtonProps, Checkbox, CheckboxProps, FormControl, FormControlLabel, FormGroup, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, withStyles } from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { Copyright, Facebook, Instagram, LinkedIn, Twitter, Visibility, VisibilityOff } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -170,11 +170,11 @@ const Login: React.FC = () => {
             )}
             <Header>
                 <span onClick={() => navigate('feed/quem-somos')}>Quem somos</span>
-                <span>Meu perfil</span>
+                <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
                 <span>Fale conosco</span>
                 <span onClick={() => navigate('feed/faq')}>FAQ</span>
-                <span>Me ajude</span>
-                <img src={Handshake} alt={''} />
+                <span onClick={() => navigate('/feed')}>Feed</span>
+                <img src={Handshake} alt={''} onClick={() => navigate('/')}/>
             </Header>
             <ToastContainer />
             <Container>
@@ -240,6 +240,28 @@ const Login: React.FC = () => {
                     <img src={BackgroundHome} alt={''} />
                 </div>    
             </Container>
+            <Footer>
+                <div className="menu">
+                    <div>
+                        <img src={Handshake} alt={''} />
+                    </div>
+                    <div>
+                        <span>Informações</span>
+                        <p>
+                            Endereço: Rua Sabiá 133, Jardim Briquet 06655250. Itapevi - SP<br /> Atendimento 24h pelo telefone (11) 4142-1831 <br /> ou pelo e-mail contato@hands.com.br.
+                        </p>
+                    </div>
+                    <div>
+                        <Facebook />
+                        <Twitter />
+                        <Instagram />
+                        <LinkedIn />
+                    </div>
+                </div>
+                <div className="copyright">
+                    <Copyright style={{color: '#FFFFFF', fontSize: '18px', marginRight: '10px'}}/> 2021 - Todos os direitos reservados
+                </div>
+            </Footer>
         </>
     );
 }

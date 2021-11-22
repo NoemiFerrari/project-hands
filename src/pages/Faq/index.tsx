@@ -5,7 +5,8 @@ import FAQ from '../../assets/faq.jpg';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
+import { Copyright, ExpandMore, Facebook, Instagram, LinkedIn, Twitter } from '@material-ui/icons';
+import { Footer } from 'pages/Login/styles';
 
 const Faq: React.FC = () => {
     
@@ -14,12 +15,12 @@ const Faq: React.FC = () => {
     return (
         <>
             <Header>
-                <span>Quem somos</span>
-                <span>Meu perfil</span>
+                <span onClick={() => navigate('/feed/quem-somos')}>Quem somos</span>
+                <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
                 <span>Fale conosco</span>
                 <span onClick={() => navigate('faq')}>FAQ</span>
-                <span>Me ajude</span>
-                <img src={Handshake} alt={''} />
+                <span onClick={() => navigate('/feed/')}>Feed</span>
+                <img src={Handshake} alt={''} onClick={() => navigate('/')}/>
             </Header>
             <Container>
                 <div className="accordion">
@@ -120,6 +121,28 @@ const Faq: React.FC = () => {
                     <img src={FAQ} alt={''} />
                 </div>
             </Container>
+            <Footer>
+                <div className="menu">
+                    <div>
+                        <img src={Handshake} alt={''} />
+                    </div>
+                    <div>
+                        <span>Informações</span>
+                        <p>
+                            Endereço: Rua Sabiá 133, Jardim Briquet 06655250. Itapevi - SP<br /> Atendimento 24h pelo telefone (11) 4142-1831 <br /> ou pelo e-mail contato@hands.com.br.
+                        </p>
+                    </div>
+                    <div>
+                        <Facebook />
+                        <Twitter />
+                        <Instagram />
+                        <LinkedIn />
+                    </div>
+                </div>
+                <div className="copyright">
+                    <Copyright style={{color: '#FFFFFF', fontSize: '18px', marginRight: '10px'}}/> 2021 - Todos os direitos reservados
+                </div>
+            </Footer>
         </>
     );
 }
