@@ -12,7 +12,7 @@ const WhoAreWe: React.FC = () => {
     return (
         <>
             <Header>
-                <span onClick={() => navigate('quem-somos')}>Quem somos</span>
+                <span>Quem somos</span>
                 <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
                 <span>Fale conosco</span>
                 <span onClick={() => navigate('/feed/faq')}>FAQ</span>
@@ -26,10 +26,10 @@ const WhoAreWe: React.FC = () => {
                 <div className="container-text">
                     <div>
                         <span>Quem somos?</span> <br /><br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum sem sit amet metus ornare, eget mattis lorem auctor. Proin euismod euismod neque, non vestibulum risus congue interdum. Praesent mi nisl, scelerisque pretium turpis eu, placerat aliquet felis. Duis quis rhoncus felis. Vestibulum gravida eu massa scelerisque cursus. Nullam varius est metus, quis rutrum mi vehicula sit amet. Cras semper in nibh a mollis. Aliquam ante enim, laoreet nec sagittis quis, egestas at sem.
+                        O Project Hands, vem da vontade de ajudar ao próximo e de conectar outras pessoas que querem ajudar com as que necessitam dessa "mão amiga" estamos orgulhosos de poder abraçar a causa e fazer a diferença na vida das pessoas.
                     </div>
-                    <div style={{paddingTop: '65px'}}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum sem sit amet metus ornare, eget mattis lorem auctor. Proin euismod euismod neque, non vestibulum risus congue interdum. Praesent mi nisl, scelerisque pretium turpis eu, placerat aliquet felis. Duis quis rhoncus felis. Vestibulum gravida eu massa scelerisque cursus. Nullam varius est metus, quis rutrum mi vehicula sit amet. Cras semper in nibh a mollis. Aliquam ante enim, laoreet nec sagittis quis, egestas at sem. Duis eros mauris, posuere ut metus in, consequat ultricies libero. Aliquam erat volutpat.
+                    <div style={{paddingTop: '95px'}}>
+                        Esperamos que nossos apoiadores se sintam confortáveis com a plataforma e com a proposta e sempre sugiram melhorias e nos ajudem a agregar na ferramenta, esse projeto é feito de pessoas para pessoas e o que nos move isso, sempre que precisar de uma mão, conte conosco!
                     </div>
                 </div>
                 <div className="container-company">
@@ -37,7 +37,7 @@ const WhoAreWe: React.FC = () => {
                         <img src={"https://images.pexels.com/photos/45842/clasped-hands-comfort-hands-people-45842.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} alt={''}/>
                     </div>
                     <div style={{padding: '25px', display: 'flex', alignItems: 'center', width: '30%', textAlign: 'justify'}}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum sem sit amet metus ornare, eget mattis lorem auctor. Proin euismod euismod neque, non vestibulum risus congue interdum. Praesent mi nisl, scelerisque pretium turpis eu, placerat aliquet felis. Duis quis rhoncus felis. Vestibulum gravida eu massa scelerisque cursus. Nullam varius est metus, quis rutrum mi vehicula sit amet. Cras semper in nibh a mollis. Aliquam ante enim, laoreet nec sagittis quis, egestas at sem. Duis eros mauris, posuere ut metus in, consequat ultricies libero. Aliquam erat.
+                        Com esse intuito entendemos que precisaríamos criar um lugar onde todos pudesse compartilhar seus melhores momentos e ao mesmo tempo achar um ambiente seguro o suficiente para que eu possa me comunicar com uma pessoa, problemas que as vezes falar com alguém conhecido parece muito mais difícil, mas sempre com controle e supervisão e deixando claro que caso tenha problemas maiores deve-se buscar ajuda profissional.
                     </div>
                     <div style={{width: '35%'}}>
                         <img src={"https://images.pexels.com/photos/5699466/pexels-photo-5699466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} alt={''}/>

@@ -18,7 +18,7 @@ const Faq: React.FC = () => {
                 <span onClick={() => navigate('/feed/quem-somos')}>Quem somos</span>
                 <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
                 <span>Fale conosco</span>
-                <span onClick={() => navigate('faq')}>FAQ</span>
+                <span>FAQ</span>
                 <span onClick={() => navigate('/feed/')}>Feed</span>
                 <img src={Handshake} alt={''} onClick={() => navigate('/')}/>
             </Header>
@@ -35,8 +35,7 @@ const Faq: React.FC = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            Na página inicial, basta clicar em "Vamos começar?"
                         </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -50,8 +49,7 @@ const Faq: React.FC = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            Clique no campo de esqueci minha senha e digite os dados usados no cadastro.
                         </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -65,8 +63,7 @@ const Faq: React.FC = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            Faça o cadastro e comece uma conversa por chat com uma pessoa disponível para você, anonimamente ou sendo identificado
                         </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -80,8 +77,7 @@ const Faq: React.FC = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            No seu perfil, adicione o link da imagem e detalhes da legenda e a mesma sera adicionada ao seu perfil assim que você salvar :)
                         </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -95,8 +91,7 @@ const Faq: React.FC = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            Vá na página Fale Conosco e solicite o cancelamento da sua conta.
                         </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -110,8 +105,7 @@ const Faq: React.FC = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            Por favor sinta-se a vontade de entrar em contato com a gente pelo canal telefônico ou por email e também na página Fale Conosco. Caso precise de ajuda urgente ligue para o CVV 152.
                         </Typography>
                         </AccordionDetails>
                     </Accordion>

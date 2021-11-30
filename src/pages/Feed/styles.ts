@@ -33,7 +33,8 @@ export const List = styled.section`
 
 export const Card = styled.div`
     width: 700px;
-    height: 800px;
+    max-height: 800px;
+    height: auto;
     background-color: #FFF;
     border-radius: 3px;
     border: 1px solid #dbdbdb;
@@ -44,7 +45,6 @@ export const Card = styled.div`
         height: 70px;
         display: flex;
         padding-left: 15px;
-        /* justify-content: center; */
         align-items: center;
 
         img {
@@ -130,5 +130,28 @@ export const Card = styled.div`
             border: 0 none;
             outline: 0;
         } 
+    }
+`;
+
+export const Modal = styled.div`
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #modal {
+        width: 350px;
+        background-color: #FFF;
+        height: auto;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
     }
 `;

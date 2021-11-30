@@ -1,7 +1,7 @@
 import { Footer, Header } from 'pages/Login/styles';
 import React, { useEffect, useState } from 'react';
 import Handshake from '../../assets/handshake.png';
-import { List, Card } from './styles';
+import { List, Card, Modal } from './styles';
 import { posts, myPosts } from '../../api/users';
 import { ChatBubbleOutline, Copyright, Facebook, Favorite, FavoriteBorderOutlined, Instagram, LinkedIn, SendOutlined, SmsOutlined, Twitter } from '@material-ui/icons';
 import { useNavigate } from 'react-router';
@@ -12,7 +12,23 @@ const Feed: React.FC = () => {
     const [postsList, setPostsList] = useState(posts);
     const [myPostsList, setMyPostsList] = useState(myPosts);
     const [name, setName] = React.useState<string>("");
+    const [userImg, setUserImg] = React.useState<string>("");
+    const [openModal, setOpenModal] = React.useState<boolean>(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const username = localStorage.getItem("username");
+
+        if(!username) {
+            navigate("/");
+        }
+
+        const postsStorage = localStorage.getItem("posts");
+        if(postsStorage) {
+            setMyPostsList(JSON.parse(postsStorage || ""));
+        }
+
+    }, []);
 
     const postComment = (index: number) => {
 
@@ -37,9 +53,18 @@ const Feed: React.FC = () => {
             'comment': comment
         }
 
-        myPosts[index].comments.push(obj);        
-        setMyPostsList([...myPosts]);
+        let newState =  myPostsList;
+        newState[index].comments.push(obj);    
+        setMyPostsList([...newState]);
         setComment("");
+    }
+
+    const likeMyPost = (index: number, like: boolean) => {
+        // posts[index].like = like;        
+        // setPostsList([...posts]);
+        let newState =  myPostsList;
+        newState[index].like = like;    
+        setMyPostsList([...newState]);
     }
 
     const likePost = (index: number, like: boolean) => {
@@ -49,21 +74,30 @@ const Feed: React.FC = () => {
 
     useEffect(() => {
         const username = localStorage.getItem("username");
+        const userImg = localStorage.getItem("userImg");
         setName(username || "");
+        setUserImg(userImg || "");
     }, []);
 
     return (
         <>
+            {openModal && (
+                <Modal onClick={() => setOpenModal(false)}>
+                    <div id="modal">
+                        Em breve você poderá conversar ao vivo com os melhores profissionais para te ajudar em tudo que você precisar!
+                    </div>
+                </Modal>
+            )}
              <Header>
                 <span onClick={() => navigate('quem-somos')}>Quem somos</span>
                 <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
                 <span>Fale conosco</span>
                 <span onClick={() => navigate('faq')}>FAQ</span>
-                <span onClick={() => navigate('/feed')}>Feed</span>
+                <span>Feed</span>
                 <img src={Handshake} alt={''} onClick={() => navigate('/')}/>
             </Header>
             <List>
-                <div className="round">
+                <div className="round" onClick={() => setOpenModal(true)}>
                     <SmsOutlined style={{color: '#FFF', fontSize: '40px'}} />
                 </div>
                 {postsList?.map((item, index) => (
@@ -97,21 +131,21 @@ const Feed: React.FC = () => {
                 {myPostsList?.map((item, index) => (
                     <Card key={index}>
                         <header>
-                            <img src={'https://img.r7.com/images/rosto-humano-irreal-inteligencia-artificial-19022019142837145'} alt={''}/>
-                            <span>{name}</span>
+                            <img src={userImg === null || !userImg ? 'https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg' : userImg} alt={''}/>
+                            <span>@{name}</span>
                         </header>
-                        <img src={item.link} alt={''} />
+                        <img src={item?.link} alt={''} />
                         <div id="icons">
                             {!item.like ?
-                                <FavoriteBorderOutlined style={{fontSize: '30px'}} onClick={() => likePost(index, true)} /> 
+                                <FavoriteBorderOutlined style={{fontSize: '30px'}} onClick={() => likeMyPost(index, true)} /> 
                             : 
-                                <Favorite style={{fontSize: '30px'}} onClick={() => likePost(index, false)} /> 
+                                <Favorite style={{fontSize: '30px'}} onClick={() => likeMyPost(index, false)} /> 
                             }
                             <ChatBubbleOutline fontSize={'large'} style={{marginLeft: '15px', fontSize: '30px'}} />
                             <SendOutlined fontSize={'large'} style={{marginLeft: '15px', fontSize: '30px'}} />
                         </div>
                         <div id="comments">
-                            <span>{name}<span>{item.title}</span></span>
+                            <span>@{name}<span> {item.title}</span></span>
                             {item.comments.map((comment, index) => (
                                 <span key={index}>{comment.username} <span>{comment.comment}</span></span>
                             ))}

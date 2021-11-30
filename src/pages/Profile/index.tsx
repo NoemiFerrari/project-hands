@@ -4,7 +4,7 @@ import Close from '../../assets/close.png';
 import Handshake from '../../assets/handshake.png';
 import { myPosts } from '../../api/users';
 import { Bar, Grid, Tab } from './styles';
-import { Copyright, Facebook, GridOn, Instagram, LinkedIn, SendOutlined, SmsOutlined, Twitter } from '@material-ui/icons';
+import { Copyright, Facebook, GridOn, Instagram, LinkedIn, Twitter } from '@material-ui/icons';
 import { useNavigate } from 'react-router';
 import { FormControl, TextField } from '@material-ui/core';
 import { ColorButton } from 'pages/Login';
@@ -16,13 +16,53 @@ const Profile: React.FC = () => {
     const navigate = useNavigate();
     
     const [openModal, setOpenModal] = React.useState<boolean>(false);
+    const [openEdit, setOpenEdit] = React.useState<boolean>(false);
     const [title, setTitle] = React.useState<string>("");
     const [link, setLink] = React.useState<string>("");
+    const [linkProfile, setLinkProfile] = React.useState<string>("");
+    const [usernameProfile, setUsernameProfile] = React.useState<string>("");
     const [username, setUsername] = React.useState<string>("");
+    const [userImg, setUserImg] = React.useState<string>("");
     const [postsList, setPostsList] = useState(myPosts);
 
     const handleChangeModal = () => {
         setOpenModal(!openModal); 
+    }
+
+    const handleChangeModalProfile = () => {
+        setOpenEdit(!openEdit); 
+    }
+
+    useEffect(() => {
+        const username = localStorage.getItem("username");
+
+        if(!username) {
+            navigate("/");
+        }
+
+        const postsStorage = localStorage.getItem("posts");
+        
+        if(postsStorage) {
+            setPostsList(JSON.parse(postsStorage || ""));
+        }
+
+    }, []);
+
+    const editProfile = () => {
+
+        if(usernameProfile === '' || linkProfile === '') {
+            toast.warn("Campos não podem ser vazios.");
+            return;
+        }
+
+        setUsername(usernameProfile);
+        setUserImg(linkProfile);
+
+        localStorage.setItem("username", usernameProfile);
+        localStorage.setItem("userImg", linkProfile);
+
+        toast.success("Perfil editado com sucesso!");
+        handleChangeModalProfile();
     }
 
     const post = () => {
@@ -32,7 +72,6 @@ const Profile: React.FC = () => {
             return;
         }
 
-
         const obj = {
             'title': title,
             'link': link,
@@ -40,8 +79,20 @@ const Profile: React.FC = () => {
             'like': false
         }
 
-        myPosts.unshift(obj);        
-        setPostsList([...myPosts]);
+        let newState = [];
+        const postsStorage = localStorage.getItem("posts");
+        
+        if(postsStorage) {
+            newState = JSON.parse(postsStorage || "");
+        }else {
+            newState = myPosts;
+        }
+
+        newState.unshift(obj);
+        setPostsList([...newState]);
+
+        localStorage.setItem("posts", JSON.stringify(newState));
+
         toast.success("Publicação concluída.")
         setLink("");
         setTitle("");
@@ -51,7 +102,9 @@ const Profile: React.FC = () => {
 
     useEffect(() => {
         const username = localStorage.getItem("username");
+        const userImg = localStorage.getItem("userImg");
         setUsername(username || "");
+        setUserImg(userImg || "");
     }, []);
 
     return (
@@ -86,9 +139,39 @@ const Profile: React.FC = () => {
                     </div>
                 </Modal>
             )}
+            {openEdit && (
+                <Modal>
+                    <div id="modal">
+                        <div style={{width: '100%', display: 'flex', justifyContent: 'end', marginBottom: '30px'}}>
+                            <img src={Close} alt={''} onClick={handleChangeModalProfile}/>
+                        </div>
+                        <h3>Editar perfil</h3>
+                        <FormControl variant="outlined" style={{width: '80%', marginTop: '30px'}}>
+                            <TextField
+                                id="outlined-basic"
+                                label="Imagem de perfil"
+                                variant="outlined"
+                                value={linkProfile}
+                                required
+                                onChange={(event: any) => setLinkProfile(event.target.value)} />
+                        </FormControl> 
+                        <FormControl variant="outlined" style={{width: '80%', marginTop: '30px'}}>
+                            <TextField
+                                id="outlined-basic"
+                                label="Nome de usuário"
+                                variant="outlined"
+                                value={usernameProfile}
+                                required
+                                inputProps={{ maxLength: 100 }}
+                                onChange={(event: any) => setUsernameProfile(event.target.value)} />
+                        </FormControl>
+                        <ColorButton onClick={editProfile} variant="contained" style={{marginTop: '30px'}}>EDITAR</ColorButton>
+                    </div>
+                </Modal>
+            )}
              <Header>
                 <span onClick={() => navigate('/feed/quem-somos')}>Quem somos</span>
-                <span onClick={() => navigate('/perfil')}>Meu perfil</span>
+                <span>Meu perfil</span>
                 <span>Fale conosco</span>
                 <span onClick={() => navigate('/feed/faq')}>FAQ</span>
                 <span onClick={() => navigate('/feed')}>Feed</span>
@@ -98,7 +181,7 @@ const Profile: React.FC = () => {
             <Bar>
                 <div>
                     <div className="photo">
-                        <img src={'https://img.r7.com/images/rosto-humano-irreal-inteligencia-artificial-19022019142837145'} alt={''} />
+                        <img src={userImg === "" ? 'https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg' : userImg} alt={''} />
                     </div>
                     <div className="data">
                         <span>@{username}</span>
@@ -107,13 +190,16 @@ const Profile: React.FC = () => {
                                 <span>{postsList.length}</span> publicações
                             </span>
                             <span>
-                                <span>180</span> conexões
+                                <span>0</span> conexões
                             </span>
                             <span style={{marginLeft: '20px'}}>
-                                <span>10</span> curtidas
+                                <span>0</span> curtidas
                             </span>
                         </div>
-                        <button onClick={handleChangeModal}>Criar publicação</button>
+                        <div style={{width: '280px', display: 'flex', justifyContent: 'space-between'}}>
+                            <button onClick={handleChangeModal}>Criar publicação</button>
+                            <button onClick={handleChangeModalProfile}>Editar perfil</button>
+                        </div>
                     </div>
                 </div>
             </Bar>

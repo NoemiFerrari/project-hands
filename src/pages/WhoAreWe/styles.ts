@@ -17,7 +17,7 @@ export const Container = styled.div`
 
     .container-text {
         width: 100%;
-        height: 400px;
+        height: 280px;
         background-color: #FFF;
         display: flex;
         align-items: center;
