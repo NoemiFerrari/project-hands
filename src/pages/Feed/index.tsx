@@ -91,7 +91,7 @@ const Feed: React.FC = () => {
              <Header>
                 <span onClick={() => navigate('quem-somos')}>Quem somos</span>
                 <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
-                <span>Fale conosco</span>
+                <span onClick={() => navigate('/feed/fale-conosco')}>Fale Conosco</span>
                 <span onClick={() => navigate('faq')}>FAQ</span>
                 <span>Feed</span>
                 <img src={Handshake} alt={''} onClick={() => navigate('/')}/>
