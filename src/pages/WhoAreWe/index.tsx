@@ -14,7 +14,7 @@ const WhoAreWe: React.FC = () => {
             <Header>
                 <span onClick={() => navigate('quem-somos')}>Quem somos</span>
                 <span onClick={() => navigate('/feed/perfil')}>Meu perfil</span>
-                <span>Fale conosco</span>
+                <span onClick={() => navigate('/feed/fale-conosco')}>Fale Conosco</span>
                 <span onClick={() => navigate('/feed/faq')}>FAQ</span>
                 <span onClick={() => navigate('/feed')}>Feed</span>
                 <img src={Handshake} alt={''} onClick={() => navigate('/')}/>

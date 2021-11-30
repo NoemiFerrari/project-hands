@@ -6,6 +6,7 @@ import Feed from './pages/Feed';
 import Faq from './pages/Faq';
 import WhoAreWe from 'pages/WhoAreWe';
 import Profile from 'pages/Profile';
+import ContactUs from 'pages/ContactUs';
 
 const RoutesHands: React.FC = () => {
 
@@ -16,6 +17,7 @@ const RoutesHands: React.FC = () => {
       <Route path={'/feed/faq'} element={<Faq />} /> 
       <Route path={'/feed/quem-somos'} element={<WhoAreWe />} /> 
       <Route path={'/feed/perfil'} element={<Profile />} /> 
+      <Route path={'/feed/fale-conosco'} element={<ContactUs />} /> 
     </Routes>
   );
 };
